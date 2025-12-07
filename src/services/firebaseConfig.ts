@@ -1,22 +1,29 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, get } from 'firebase/database';
+import { getDatabase, ref } from 'firebase/database';
 
-// Your Firebase config - replace with your actual values
+// Firebase configuration - Add your actual values here
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || '',
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL || '',
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || '',
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || '',
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '',
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
+  apiKey: "AIzaSyBEOVKrqLE7G3TnxKtCJnYIqRNc04vXQPM",
+  authDomain: "ai-news-a0483.firebaseapp.com",
+  databaseURL: "https://ai-news-a0483-default-rtdb.firebaseio.com",
+  projectId: "ai-news-a0483",
+  storageBucket: "ai-news-a0483.firebasestorage.app",
+  messagingSenderId: "227037934522",
+  appId: "1:227037934522:web:af5421280689a09e46383",
+  measurementId: "G-2NZ8QEL8VT"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+let app;
+let db;
 
-// Initialize Realtime Database and get a reference to the service
-export const db = getDatabase(app);
-export const newsRef = ref(db, 'news');
+try {
+  app = initializeApp(firebaseConfig);
+  db = getDatabase(app);
+  console.log('✓ Firebase initialized successfully');
+} catch (error) {
+  console.error('Firebase initialization error:', error);
+}
 
-export default app;
+export const newsRef = db ? ref(db, 'news') : null;
+export { db };
