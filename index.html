@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,28 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&family=Permanent+Marker&display=swap" rel="stylesheet">
-    
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              editorial: ['"Merriweather"', 'serif'],
-              comic: ['"Permanent Marker"', 'cursive'],
-              hand: ['"Patrick Hand"', 'cursive'],
-            },
-            colors: {
-              'ink': '#2a2a2a',
-              'paper': '#fdfbf7',
-            }
-          }
-        }
-      }
-    </script>
   </head>
   
-  <body class="bg-[#fdfbf7] text-[#2a2a2a] overflow-x-hidden">
+  <body class="bg-[#fdfbf7] text-[#2a2a2a]">
     <div id="root"></div>
-    <script type="module" src="./main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
