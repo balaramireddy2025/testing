@@ -6,5 +6,6 @@ export default defineConfig({
   base: '/testing/',
   build: {
     outDir: 'dist',
+    sourcemap: false,
   }
 })
