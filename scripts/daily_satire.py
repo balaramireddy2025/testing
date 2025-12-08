@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Daily AI Satire Generator
-Fetches real AI/tech news and transforms it into satirical content for AI Comic Daily News
+Daily AI Satire Generator - Updated for google-genai v1.0+
+Fetches real tech news and transforms it into satirical content for AI Comic Daily News
 """
 
 import os
@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Optional, List, Dict, Any
 import firebase_admin
 from firebase_admin import credentials, db
-import google.generativeai as genai
+import google.genai as genai
 
 # Configuration
 NEWS_API_KEY = os.getenv('NEWS_API_KEY')
@@ -56,9 +56,13 @@ def init_firebase() -> None:
         raise
 
 def init_gemini() -> None:
-    """Initialize Gemini API"""
-    genai.configure(api_key=GEMINI_API_KEY)
-    print("✓ Gemini API configured")
+    """Initialize Gemini API with v1.0+ SDK"""
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        print("✓ Gemini API v1.0+ configured")
+    except Exception as e:
+        print(f"✗ Gemini initialization failed: {e}")
+        raise
 
 def fetch_real_news(query: str, days: int = 7) -> List[Dict[str, Any]]:
     """
@@ -93,7 +97,7 @@ def fetch_real_news(query: str, days: int = 7) -> List[Dict[str, Any]]:
 
 def generate_satire(title: str, description: str, source: str) -> Optional[Dict[str, str]]:
     """
-    Generate satirical version of news using Gemini
+    Generate satirical version of news using Gemini v1.0+ SDK
     
     Args:
         title: Original news title
@@ -104,7 +108,7 @@ def generate_satire(title: str, description: str, source: str) -> Optional[Dict[
         Dictionary with satirical_title and satirical_description
     """
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash')
+        client = genai.Client()
         
         prompt = f"""You are a witty satirist for "AI Comic Daily News" - a humorous newspaper about AI and tech.
 Transform this tech news into a funny, satirical headline and short description.
@@ -126,7 +130,11 @@ Respond in this exact JSON format:
   "satirical_description": "Your funny description here"
 }}"""
 
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt,
+        )
+        
         response_text = response.text.strip()
         
         # Try to extract JSON from response
@@ -213,9 +221,6 @@ def save_to_firebase(news_items: List[Dict[str, Any]]) -> None:
     """
     try:
         ref = db.reference('news')
-        
-        # Clear old news (optional - adjust based on your needs)
-        # ref.delete()
         
         # Save each news item
         for item in news_items:
