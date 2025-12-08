@@ -1,6 +1,6 @@
 import React from 'react';
-import { NewsItem } from '../types';
-import { X, ExternalLink, Share2, Printer } from 'lucide-react';
+import { NewsItem } from './types';
+import { X, ExternalLink } from 'lucide-react';
 
 interface ArticleModalProps {
   item: NewsItem | null;
