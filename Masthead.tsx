@@ -1,5 +1,5 @@
 import React from 'react';
-import { PenTool, Feather } from 'lucide-react';
+import { Feather } from 'lucide-react';
 
 export const Masthead: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ export const Masthead: React.FC = () => {
         <div className="relative text-center py-4">
             
             {/* Background Ink Blot shape (CSS) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[120%] bg-ink opacity-5 -rotate-1 rounded-[50%_40%_40%_50%_/_40%_50%_50%_40%] z-0 blur-sm"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[120%] bg-ink opacity-5 -rotate-1 rounded-[50%_40%_40%_50%_/_40%_50%_50%_40%] z-0 blur-sm pointer-events-none"></div>
 
             <div className="relative z-10">
                 <div className="flex items-center justify-center space-x-4 mb-2">
