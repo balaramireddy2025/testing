@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Masthead } from './Masthead';
-import { NewsCard } from './NewsCard';
-import { SectionHeader } from './SectionHeader';
-import { ArticleModal } from './ArticleModal';
-// Assuming services/newsService.ts is in src/services based on your screenshot structure
+import { Masthead } from './components/Masthead';
+import { NewsCard } from './components/NewsCard';
+import { SectionHeader } from './components/SectionHeader';
+import { ArticleModal } from './components/ArticleModal';
 import { fetchNews } from './services/newsService';
 import { NewsItem } from './types';
 import { Loader2, AlertCircle, PenTool, Mail } from 'lucide-react';
