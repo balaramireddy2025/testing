@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Masthead } from './components/Masthead';
-import { NewsCard } from './components/NewsCard';
-import { SectionHeader } from './components/SectionHeader';
-import { ArticleModal } from './components/ArticleModal';
+import { Masthead } from './Masthead';
+import { NewsCard } from './NewsCard';
+import { SectionHeader } from './SectionHeader';
+import { ArticleModal } from './ArticleModal';
 import { fetchNews } from './services/newsService';
 import { NewsItem } from './types';
 import { Loader2, AlertCircle, PenTool, Mail } from 'lucide-react';
