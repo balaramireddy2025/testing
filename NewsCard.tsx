@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsItem } from '../types';
+import { NewsItem } from './types';
 
 interface NewsCardProps {
   item: NewsItem;
