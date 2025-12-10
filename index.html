@@ -4,63 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Comic Daily News</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Fonts: Merriweather (Editorial), Permanent Marker (Comic), Patrick Hand (Handwriting) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&family=Permanent+Marker&display=swap" rel="stylesheet">
-    
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              editorial: ['"Merriweather"', 'serif'],
-              comic: ['"Permanent Marker"', 'cursive'],
-              hand: ['"Patrick Hand"', 'cursive'],
-            },
-            boxShadow: {
-              'ink': '3px 3px 0px 0px #2a2a2a',
-              'ink-lg': '6px 6px 0px 0px #2a2a2a',
-            },
-            colors: {
-              'ink': '#2a2a2a',
-              'paper': '#fdfbf7',
-              'wash-blue': '#a8d1e7', 
-              'wash-red': '#e89da2',
-              'wash-yellow': '#f6e5ae',
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      /* Watercolor Texture Effect for Images */
-      .watercolor-filter {
-        filter: contrast(1.1) brightness(1.05) sepia(0.3) saturate(0.8);
-      }
-      
-      /* Subtle Paper Grain Background */
-      .paper-grain {
-        background-color: #fdfbf7;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "vite": "https://aistudiocdn.com/vite@^7.2.7",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
-</head>
-  <body class="bg-paper text-ink paper-grain overflow-x-hidden">
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
