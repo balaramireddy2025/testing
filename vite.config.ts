@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   plugins: [react()],
-  base: mode === 'production' ? '/testing/' : '/',
+  base: '/testing/',  // CRITICAL: Must have /testing/ for GitHub Pages
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -13,4 +13,4 @@ export default defineConfig(({ mode }) => ({
     port: 5173,
     strictPort: false,
   }
-}));
+});
