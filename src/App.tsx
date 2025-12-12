@@ -1,3 +1,6 @@
+// Make sure all image URLs are relative or full URLs
+// NOT: /images/... (this will fail)
+// DO: ./images/... or https://via.placeholder.com/...
 import React, { useEffect, useState } from 'react';
 import { Masthead } from './Masthead';
 import { NewsCard } from './NewsCard';
